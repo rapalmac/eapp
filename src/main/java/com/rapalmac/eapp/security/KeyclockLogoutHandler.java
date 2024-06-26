@@ -1,21 +1,17 @@
 package com.rapalmac.eapp.security;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -24,7 +20,7 @@ import java.net.http.HttpResponse;
 public class KeyclockLogoutHandler implements LogoutHandler {
     private static final Logger logger = LoggerFactory.getLogger(KeyclockLogoutHandler.class);
 
-    @Value("${keycloack.logouthandler.post_redirect_uri}")
+    @Value("${keycloak.logouthandler.post_redirect_uri}")
     private String postRedirectUri;
 
     @Override
