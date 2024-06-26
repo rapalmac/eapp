@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_DATABASE: ktordb
+      MARIADB_USER: ktorapp
+      MARIADB_PASSWORD: S1Hc3rlxyD0=
+      MARIADB_ROOT_PASSWORD: V6EJPyUZ2mQ=
+    ports:
+      - 3306:3306
+
+  keyclock:
+    image: quay.io/keycloak/keycloak:25.0.1
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: IoXaiZqAKPA=
+    ports:
+      - 9091:8080
+    command: ["start-dev"]
