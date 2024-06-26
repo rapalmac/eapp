@@ -1,4 +1,4 @@
-package com.rapalmac.eapp.resource;
+package com.rapalmac.eapp;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
