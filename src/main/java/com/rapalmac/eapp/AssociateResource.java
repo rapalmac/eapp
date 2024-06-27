@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
 public class AssociateResource {
-    @GetMapping("/associate")
+    @GetMapping(value = "/associate", produces = "application/json")
     public String getAssociates() {
         return "[{\"name\": \"Juan Perez\"}]";
     }
