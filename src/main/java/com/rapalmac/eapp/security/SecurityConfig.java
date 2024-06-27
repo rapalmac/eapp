@@ -28,19 +28,20 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http, KeyclockLogoutHandler logoutHandler) throws Exception {
         http.authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers(new AntPathRequestMatcher("/associate/*"))
-                                .hasRole("user")
+                                .requestMatchers(new AntPathRequestMatcher("/**"))
+                                .hasRole("appuser")
                                 .requestMatchers(new AntPathRequestMatcher("/"))
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated());
 
         http.oauth2ResourceServer(oauth2 -> oauth2
-                .jwt(Customizer.withDefaults()));
+                .jwt(jwt -> jwt.jwtAuthenticationConverter(new JwtAuthorityConverter())));
 
         http.oauth2Login(Customizer.withDefaults()).logout(lo -> lo
                 .addLogoutHandler(logoutHandler)
                 .logoutSuccessUrl("/"));
+
         return http.build();
     }
 }

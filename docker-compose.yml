@@ -6,8 +6,8 @@ services:
     image: mariadb
     restart: always
     environment:
-      MARIADB_DATABASE: ktordb
-      MARIADB_USER: ktorapp
+      MARIADB_DATABASE: eappdb
+      MARIADB_USER: eappuser
       MARIADB_PASSWORD: S1Hc3rlxyD0=
       MARIADB_ROOT_PASSWORD: V6EJPyUZ2mQ=
     ports:
